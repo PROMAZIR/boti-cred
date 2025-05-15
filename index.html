@@ -719,47 +719,47 @@ nameModal.addEventListener('click', (e) => {
 });
 
 // Função para criar o menu flutuante
-//function createFloatingActionMenu() {
+function createFloatingActionMenu() {
     // Criar o botão de menu (emoji de joinha)
-  //  const menuButton = document.createElement('button');
-  //  menuButton.className = 'admin-float-button';
- //   menuButton.innerHTML = '⚙️'; // Emoji de joinha
- //   menuButton.style.cssText = `
-      //  position: fixed;
-     //   bottom: 20px;
-       // left: 50%;
-      //  transform: translateX(-50%);
-      //  width: 36px;
-     //   height: 36px;
-    //    border-radius: 50%;
-    //    background-color: rgba(0, 123, 255, 0.8);
-     //   color: white;
-     //   border: none;
-    //    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    //    cursor: pointer;
-    //    display: flex;
-    //    align-items: center;
-    //    justify-content: center;
-    //    z-index: 1000;
-     //   transition: all 0.3s ease;
-     //   font-size: 16px;
-  //  `;
+    const menuButton = document.createElement('button');
+    menuButton.className = 'admin-float-button';
+    //menuButton.innerHTML = '⚙️'; // Emoji de joinha
+   menuButton.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 36px;
+        height: 36px;
+       border-radius: 50%;
+       background-color: rgba(0, 123, 255, 0.8);
+        color: white;
+        border: none;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        cursor: pointer;
+       display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        font-size: 16px;
+   `;
 
-    // Criar o menu dropdown
-    //const menu = document.createElement('div');//
-    //menu.style.cssText = `
-    //    position: fixed;
-    //    bottom: 65px;
-    //    left: 50%;
-    //    transform: translateX(-50%);
-     //   background-color: white;
-     //   border-radius: 8px;
-     //   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-     //   display: none;
-    //    flex-direction: column;
-    //    overflow: hidden;
-    //    z-index: 1000;//
-   //     width: 200px;//
+     Criar o menu dropdown
+    const menu = document.createElement('div');//
+    menu.style.cssText = `
+        position: fixed;
+       bottom: 65px;
+       left: 50%;
+      transform: translateX(-50%);
+       background-color: white;
+       border-radius: 8px;
+       box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+       z-index: 1000;//
+       width: 200px;//
     `;
 
     // Botão de atualização do iframe
