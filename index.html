@@ -420,8 +420,10 @@
         <!-- Botão de instalação -->
         <button id="install-button">Adicionar à tela inicial</button>
     </div>
-    
+   
     <script>
+         // Adicione uma variável de versão no topo do seu script
+const APP_VERSION = '1.0.1'; // Incremente este valor quando fizer alterações no seu GAS
         // Elementos principais
         const loadingScreen = document.getElementById('loading-screen');
         const appFrame = document.getElementById('app-frame');
@@ -805,19 +807,35 @@
         // Verificar conexão inicial
         checkConnection();
         
+        // Adicione esta função para limpar o cache do navegador para o domínio específico
+function clearCacheForDomain(domain) {
+    if ('caches' in window) {
+        caches.keys().then(function(names) {
+            for (let name of names) {
+                caches.delete(name).then(function() {
+                    console.log('Cache deletado: ' + name);
+                });
+            }
+        });
+    }
+}
+        
         // Função para forçar a atualização do Google Apps Script
         function forceGoogleAppsScriptUpdate() {
-            // Adicionar timestamp para evitar cache
-            const timestamp = new Date().getTime();
-            const currentSrc = appFrame.src;
-            const baseUrl = currentSrc.split('?')[0];
-            
-            // Recarregar o iframe com novo timestamp
-            appFrame.src = `${baseUrl}?t=${timestamp}`;
-            
-            // Mostrar a tela de carregamento novamente
-            loadingScreen.style.display = 'flex';
-        }
+    // Mostrar a tela de carregamento primeiro
+    loadingScreen.style.display = 'flex';
+    
+    // Adicionar timestamp e versão para evitar cache
+    const timestamp = new Date().getTime();
+    const currentSrc = appFrame.src;
+    const baseUrl = currentSrc.split('?')[0];
+    
+    // Usar a versão do app no parâmetro da URL
+    appFrame.src = `${baseUrl}?v=${APP_VERSION}&t=${timestamp}&nocache=true`;
+    
+    // Mostrar a tela de carregamento novamente
+    loadingScreen.style.display = 'flex';
+}
         
         // Função para mostrar toast de notificação
         function showToast(message, duration = 3000) {
